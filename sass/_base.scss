@@ -38,6 +38,7 @@
 
 
 // METHOD 2: LINE NAMES
+/*
 .challenge {
     width: 1000px;
     margin: 30px auto;
@@ -72,3 +73,46 @@
         grid-column: col-start 1 / grid-end;
     }
 }
+*/
+
+
+// METHOD 3: NAME GRID AREAS
+.challenge {
+    width: 1000px;
+    margin: 30px auto;
+
+    display: grid;
+    grid-template-rows: 100px 200px 400px 100px;
+    grid-template-columns: repeat(3, 1fr) 200px;
+    grid-gap: 30px;
+
+    grid-template-areas: "head head head head"
+                         "box box box side"
+                         "main main main side"
+                         "foot foot foot foot";
+
+    & > * {
+        background-color: orangered;
+        padding: 20px;
+        color: white;
+        font-size: 30px;
+        font-family: sans-serif;
+    }
+
+    .header {
+        grid-area: head;
+    }
+
+    .sidebar {
+       grid-area: side;
+    }
+
+    .main-content {
+       grid-area: main;
+    }
+
+    .footer {
+       grid-area: foot;
+    }
+}
+
